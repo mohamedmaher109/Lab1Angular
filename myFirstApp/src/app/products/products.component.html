@@ -1,3 +1,68 @@
-<h1>{{StoreName}}</h1>
+<h1>{{StoreName| uppercase}}</h1>
 <img [src]="StoreLogo"/>
-<h3>{{"We offer an explicit discount of "+ Discount}}</h3>
+
+
+<h3 *ngIf="Discount !='No Discount'">We offer an explicit discount of {{Discount|percent}}</h3>
+
+
+
+<h3>Choose Your Category</h3>
+
+<select>
+    <option value="default">----</option>
+    <option *ngFor="let category of CategoryList" [value]="category.Name">{{category.Name}}
+    </option>
+</select>
+
+
+<br><br>
+<input type="button" (click)="toggleShow()" value="Buy"/>
+
+<div *ngIf="IsPurshased; then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <div>{{"Thanks for purchasing from our Store " + ClientName}}</div>
+</ng-template>
+
+
+<ng-template #elseBlock>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Product List</h1>
+            </div>
+            <div class="panel-body">
+                
+                <table class="table-latitude">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Image</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of ProductList">
+                            <td>{{product.Name}}</td>
+                            <td>{{product.Price}}</td>
+                            <td>{{product.Quantity}}</td>
+                            <td><img [src]="product.Image" style="width: 50px; height: 50px;"/></td>
+    
+                            
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+
+
+<hr>
+<h2>Client Name</h2>
+<input [(ngModel)]="ClientName" type="text"/><p>{{ClientName}}</p>
