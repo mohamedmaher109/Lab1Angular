@@ -1,3 +1,38 @@
 <app-header></app-header>
+<input type="button" value="show/hide" (click)="show()"/>
+<div *ngIf="IsShow">
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>Product List</h1>
+            </div>
+            <div class="panel-body">
+                
+                <table class="table-latitude">
+                    <thead>
+                        <tr>
+                            <th>Product Name</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Image</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of ProductList">
+                            <td>{{product.Name}}</td>
+                            <td>{{product.Price}}</td>
+                            <td>{{product.Quantity}}</td>
+                            <td><img [src]="product.Image" style="width: 50px; height: 50px;"/></td>
+    
+                            
+                        </tr>
+                    </tbody>
+                </table>
+    
+            </div>
+        </div>
+    </div> 
+</div>
 <app-products></app-products>
 <app-footer></app-footer>
