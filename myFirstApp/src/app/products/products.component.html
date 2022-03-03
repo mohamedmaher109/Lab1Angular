@@ -63,6 +63,17 @@
 
 
 
+<div class="card-deck row">
+  <div class="card col-3" *ngFor="let product of ProductList">
+    <img [src]="product.Image"  class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{product.Name}}</h5>
+      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text"><small class="text-muted">{{product.Price|currency}}</small></p>
+    </div>
+</div>
+</div>
+
 <hr>
 <h2>Client Name</h2>
 <input [(ngModel)]="ClientName" type="text"/><p>{{ClientName}}</p>

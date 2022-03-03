@@ -1,5 +1,17 @@
     [
         {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/8.jpg"}
-       ,{"Id":2,"Name":"slim-fit pantalon","Price":500,"Quantity":1,"Image":"../../assets/1.jpg"}
+       ,{"Id":2,"Name":"slim-fit pantalon","Price":500,"Quantity":1,"Image":"../../assets/1.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/2.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/3.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/4.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/5.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/7.jpg"},
+       {"Id":1,"Name":"black-jacket","Price":1000,"Quantity":1,"Image":"../../assets/9.jpg"}
+
+
+
+
+
+
     ]
 
