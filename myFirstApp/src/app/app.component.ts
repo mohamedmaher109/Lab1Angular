@@ -11,8 +11,8 @@ import { IProduct } from './Shared Classes and types/IProduct';
 export class AppComponent {
   title = 'myFirstApp';
   IsShow:boolean=false;
-  @ViewChild (ProductsComponent) product:ProductsComponent = new ProductsComponent(new ProductServiceService);
-  ProductList:IProduct[]=this.product.renderValues();
+ // @ViewChild (ProductsComponent) product:ProductsComponent = new ProductsComponent(new ProductServiceService);
+  //ProductList:IProduct[]=this.product.renderValues();
 
   show(){
     this.IsShow = !this.IsShow;

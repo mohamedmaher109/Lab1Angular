@@ -18,6 +18,7 @@ export class ProductsComponent implements OnInit {
   CategoryList :ICategory[];
   ClientName   :string;
   IsPurshased  :boolean;
+  errorMsg     :string;
   //service      : ProductServiceService;
 
 
@@ -26,11 +27,12 @@ export class ProductsComponent implements OnInit {
     this.Discount    = DiscountOffers.Discount10;
     this.StoreName   = "Men Clothes";
     this.StoreLogo   = "../../assets/logo.jpg";
-    this.ProductList = productService.GetAllProducts();
+    this.ProductList = []
 
     this.CategoryList = [{Id:1,Name:"Jackets"},{Id:2,Name:"Pantalons"},{Id:3,Name:"T-shirts"}];
     this.ClientName = "Mohamed Maher";
     this.IsPurshased = false;
+    this.errorMsg = "";
     //this.service  = productService;
    }
 
@@ -40,17 +42,22 @@ export class ProductsComponent implements OnInit {
     
     }
 
-    find(id:number):any{
+    /*find(id:number):any{
       return this.productService.GetProductById(id);
 
-    }
+    }*/
 
-    renderValues():IProduct[]{
+    /*renderValues():IProduct[]{
       return this.ProductList;
-    }
+    }*/
   
 
   ngOnInit(): void {
+    this.productService.GetAllProducts().subscribe(productData=>{this.ProductList=productData},
+      error=>{
+        this.errorMsg = error;
+      }
+      )
   }
 
 }

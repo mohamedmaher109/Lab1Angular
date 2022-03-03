@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { catchError, Observable, throwError } from 'rxjs';
 import { IProduct } from '../Shared Classes and types/IProduct';
 
 @Injectable({
@@ -6,19 +8,20 @@ import { IProduct } from '../Shared Classes and types/IProduct';
 })
 export class ProductServiceService {
 
-  private ProductList:IProduct[];
   
-  constructor() { 
-    this.ProductList = [{Id:1,Name:"black-jacket",Price:1000,Quantity:1,Image:"../../assets/8.jpg"}
-    ,{Id:2,Name:"slim-fit pantalon",Price:500,Quantity:1,Image:"../../assets/1.jpg"}];
+  url:string = "../assets/products.json"
+  constructor(private http:HttpClient) { 
+   
   }
 
-  GetAllProducts():IProduct[]{
+  GetAllProducts():Observable<IProduct[]>{
 
-    return this.ProductList;
+    return this.http.get<IProduct[]>(this.url).pipe(catchError((err)=>{
+      return throwError(err.Message||"Server error");
+    }));
   }
 
-  GetProductById(prdId:number):any{
+  /*GetProductById(prdId:number):any{
     if(isNaN(prdId)){
       return null;
     }
@@ -27,5 +30,5 @@ export class ProductServiceService {
 
     }
     
-  }
+  }*/
 }
